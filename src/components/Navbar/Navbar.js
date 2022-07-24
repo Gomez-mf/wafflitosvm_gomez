@@ -1,6 +1,7 @@
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png'
+import CartWidget from './CartWidget';
 
-function Navbar(){
+const Navbar = ()=>{
     return (
         <>
         <header>
@@ -12,7 +13,7 @@ function Navbar(){
                     <div class="links">
                         <a href="#">Nosotros</a>
                         <a href="#">Productos</a>
-                        <a href="#">Carrito <span>0</span></a>
+                        <a href="#">Carrito <span>0 </span><CartWidget/></a>
                     </div>
                 </div>
             </nav>
@@ -21,4 +22,4 @@ function Navbar(){
     )
 }
 
-export default Navbar
+export default Navbar;
