@@ -1,6 +1,5 @@
 import logo from '../../img/logo.png'
 import CartWidget from './CartWidget';
-import ItemCount from '../ItemCount/ItemCount';
 
 const Navbar = ()=>{
     return (

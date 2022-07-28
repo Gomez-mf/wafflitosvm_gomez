@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import imagenes from '../../img/imagenesWaffles';
-import { ItemCount } from '../ItemCount/ItemCount';
+import ItemCount from '../ItemCount/ItemCount';
 
 const Productos = () => {
   return (
