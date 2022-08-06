@@ -1,13 +1,13 @@
 import Navbar from './components/Navbar/Navbar';
-import Productos from './components/Productos/Productos';
 import Footer from'./components/Footer/Footer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 
 function App(){
   return (
           <>
             <Navbar />
-            <Productos />      
+            <ItemListContainer greeting={"Nuestros productos"}/>
             <Footer />
           </>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
     const [numero, setNumero] = useState(initial);
 
     const agregarAlCarrito = () => {
@@ -26,4 +26,6 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
         </div>
     )
 }
+
+export default ItemCount;
 
