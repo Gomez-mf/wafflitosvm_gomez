@@ -15,6 +15,8 @@ const ItemListContainer = ({ greeting }) => {
         }, 2000)
       }).then(
         data=>setWaffles(data))
+        .catch(error=>console.log(error))
+        .finally(()=>setCargando(false))
   }, [])
 
   return (
@@ -23,7 +25,7 @@ const ItemListContainer = ({ greeting }) => {
     <h2 className='titulos'>{greeting}</h2>
     <div className="contenedor">
       {
-        cargando ? <span><Spinner /> Cargando...  </span> : <ItemList waffles={waffles} />
+        cargando ? <span><Spinner /> Cargando...Espere, por favor  </span> : <ItemList waffles={waffles} />
       }
     </div>    
     </section>

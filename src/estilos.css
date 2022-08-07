@@ -61,6 +61,12 @@ header nav .menu .links a {
     margin-top: 35px;
     margin-bottom: 35px;
 }
+
+
+.textosDetalle{
+    text-align: center;
+    font-weight: bold;
+}
 .card{
     border: 3px dashed #de9b20;
     margin-bottom: 15px;
@@ -112,6 +118,13 @@ p{
     cursor: pointer;
 }
 
+.imagenDetalle{
+    float: left;
+}
+
+.textosDetalle{
+    width: 100%;
+}
 span{
     padding: 10px;
     color: #b1575a;
