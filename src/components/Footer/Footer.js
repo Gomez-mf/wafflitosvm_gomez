@@ -5,9 +5,9 @@ const Footer= ()=>{
     return (
         <>
             <footer>
-                <div class="footer">                    
-                    <a href="https://www.facebook.com/waffli.tos.50 " class="footerIconos"><FontAwesomeIcon icon={faFacebook}/></a>
-                    <a href="https://www.instagram.com/wafflitosvm/ " class="footerIconos"><FontAwesomeIcon icon={faInstagram}/></a>
+                <div className='footer'>                    
+                    <a href="https://www.facebook.com/waffli.tos.50 " className="footerIconos"><FontAwesomeIcon icon={faFacebook}/></a>
+                    <a href="https://www.instagram.com/wafflitosvm/ " className="footerIconos"><FontAwesomeIcon icon={faInstagram}/></a>
                 <div>
                     <p className="footerTextos">
                     Seguinos en nuestras redes.<br></br>Sitio creado por Florencia Gomez©

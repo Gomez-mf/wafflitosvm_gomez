@@ -10,12 +10,13 @@ const ItemDetailContainer = () => {
   useEffect(()=>{
     new Promise((resolve, reject) => {
       setTimeout(()=>{
-        setCargando(false)
         resolve(productos)
       }, 2000)
     }).then(res =>{
       setWaffles(res.find(item => item.id === 4))
     })
+    .catch(error=>console.log(error))
+    .finally(()=>setCargando(false))
 }, [waffles])
 return (
   <>

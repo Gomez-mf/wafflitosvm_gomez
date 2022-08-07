@@ -10,7 +10,6 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(()=>{
       new Promise((resolve, reject) => {
         setTimeout(()=>{
-          setCargando(false)
           resolve(productos)
         }, 2000)
       }).then(

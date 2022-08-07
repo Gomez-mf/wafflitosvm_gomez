@@ -6,11 +6,11 @@ const Navbar = ()=>{
         <>
         <header>
             <nav>
-                <div class="logo">
+                <div className='logo'>
                     <img src={logo} alt="logo wafflito vm" />
                 </div>
-                <div class="menu">
-                    <div class="links">
+                <div className='menu'>
+                    <div className='links'>
                         <a href="#">Nosotros</a>
                         <a href="#">Productos</a>
                         <a href="#">Carrito <span>0</span><CartWidget/></a>
