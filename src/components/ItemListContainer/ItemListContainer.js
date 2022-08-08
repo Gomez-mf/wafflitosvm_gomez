@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList ";
 import { productos } from '../Productos/productos.js';
 import Spinner from'../Spinner/Spinner'
+
 const ItemListContainer = ({ greeting }) => {
 
   const [waffles, setWaffles] = useState([]);
