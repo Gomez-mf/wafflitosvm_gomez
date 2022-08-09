@@ -5,8 +5,8 @@ const Navbar = ()=>{
     return (
         <>
         <header>
-            <nav>
-                <div className='logo'>
+            <nav className='navbar'>
+                <div className='navbar__logo'>
                     <img src={logo} alt="logo wafflito vm" />
                 </div>
                 <div className='menu'>

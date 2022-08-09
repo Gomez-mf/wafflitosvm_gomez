@@ -16,20 +16,20 @@ header {
     box-shadow: 0px 6px 5px 3px rgba(0, 0, 0, 0.425);
 }
 
-.logo {
-    position: absolute;
-    z-index: 40;
+.container-fluid {
+    position: fixed;
+    background-color: #f3eadb;
 }
 
-nav {
+.navbar {
     position: fixed;
     width: 100%;
     background-color: #f3eadb;
 }
 
-.container-fluid {
-    position: fixed;
-    background-color: #f3eadb;
+.navbar__logo {
+    position: absolute;
+    z-index: 40;
 }
 
 header nav .menu {
@@ -53,7 +53,7 @@ header nav .menu .links a {
     font-size: 18px;
 }
 
-.contenedor{
+.contenedor {
     display: flex;
     flex-flow: row wrap;
     justify-items: center;
@@ -62,12 +62,12 @@ header nav .menu .links a {
     margin-bottom: 35px;
 }
 
-
-.textosDetalle{
+.textosDetalle {
     text-align: center;
     font-weight: bold;
 }
-.card{
+
+.card {
     border: 3px dashed #de9b20;
     margin-bottom: 15px;
 }
@@ -85,15 +85,14 @@ header nav .menu .links a {
     cursor: pointer;
 }
 
-
-p{
+p {
     color: #b1575a;
     font-size: 18px;
     white-space: pre-line;
     margin: 10px 20px;
 }
 
-.titulos{
+.titulos {
     color: #b1575a;
     margin-top: 15px;
     margin-bottom: 20px;
@@ -107,7 +106,7 @@ p{
     padding: 10px 0px;
 }
 
-.botonCantidad{
+.botonCantidad {
     background-color: #b1575a;
     border: 0;
     border-radius: 5px;
@@ -118,14 +117,15 @@ p{
     cursor: pointer;
 }
 
-.imagenDetalle{
+.imagenDetalle {
     float: left;
 }
 
-.textosDetalle{
+.textosDetalle {
     width: 100%;
 }
-span{
+
+span {
     padding: 10px;
     color: #b1575a;
     font-weight: bold;
@@ -133,29 +133,32 @@ span{
 
 .loader {
     border: 10px solid #f3f3f3;
-    border-top: 10px solid #b1575a;;
+    border-top: 10px solid #b1575a;
+    ;
     border-radius: 50%;
     margin-bottom: 10px;
     width: 80px;
     height: 80px;
     animation: spin 1s linear infinite;
-  }
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  } 
-  
-  .footerTextos {
+}
+
+.footerTextos {
     justify-content: center;
     color: white;
     text-align: center;
-    text-decoration: underline; }
+    text-decoration: underline;
+}
 
-.footerIconos{
+.footerIconos {
     color: white;
     margin: 5px 5px;
     font-size: 1.5rem;
