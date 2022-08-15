@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -22,7 +23,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div>
             <button disabled={numero === 0} className="botonCantidad" onClick={disminuir}>  -  </button><span>{numero}</span><button disabled={numero === stock} className="botonCantidad" onClick={aumentar} >  +  </button><br></br>
-            <button disabled={numero === 0} className="botonGral" onClick={agregarAlCarrito} >Agregar al carrito</button>
+            <button disabled={numero === 0} className="botonCarrito" onClick={agregarAlCarrito} >Agregar al carrito</button>
         </div>
     )
 }

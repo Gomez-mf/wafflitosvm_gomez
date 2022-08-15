@@ -1,23 +1,27 @@
 import logo from '../../img/logo.png'
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
-const Navbar = ()=>{
+const Navbar = () => {
     return (
         <>
-        <header>
-            <nav className='navbar'>
-                <div className='navbar__logo'>
-                    <img src={logo} alt="logo wafflito vm" />
-                </div>
-                <div className='menu'>
-                    <div className='links'>
-                        <a href="#">Nosotros</a>
-                        <a href="#">Productos</a>
-                        <a href="#">Carrito <span>0</span><CartWidget/></a>
+            <header>
+                <nav className='navbar'>
+                    <Link to="/">
+                    <div className='navbar__logo'>
+                            <img src={logo} alt="logo wafflito vm" />
+                    </div>                    
+                    </Link>
+                    <div className='navbar__menu'>
+                        <div className='navbar__links'>
+                            <Link to='/'>Todos</Link>
+                            <Link to='categoria/dulces'>Waffles dulces</Link>
+                            <Link to='categoria/salado'>Waffles salados</Link>
+                            <Link to='carrito'>Carrito <span>0</span><CartWidget /></Link>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
         </>
     )
 }

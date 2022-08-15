@@ -6,10 +6,10 @@ const Footer= ()=>{
         <>
             <footer>
                 <div className='footer'>                    
-                    <a href="https://www.facebook.com/waffli.tos.50 " className="footerIconos"><FontAwesomeIcon icon={faFacebook}/></a>
-                    <a href="https://www.instagram.com/wafflitosvm/ " className="footerIconos"><FontAwesomeIcon icon={faInstagram}/></a>
+                    <a href="https://www.facebook.com/waffli.tos.50 " className="footer__iconos"><FontAwesomeIcon icon={faFacebook}/></a>
+                    <a href="https://www.instagram.com/wafflitosvm/ " className="footer__iconos"><FontAwesomeIcon icon={faInstagram}/></a>
                 <div>
-                    <p className="footerTextos">
+                    <p className="footer__textos">
                     Seguinos en nuestras redes.<br></br>Sitio creado por Florencia Gomez©
                     </p>
                 </div>
