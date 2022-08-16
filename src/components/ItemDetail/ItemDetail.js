@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from "react-router-dom";
 
 export const ItemDetail = ({waffles}) => {
   const {nombre, imagen, descripcion,  precio, stock } = waffles;
+
+  const [agregar, setAgregar] = useState(true)
+
+   const agregarAlCarrito = (numero)=>{
+      setAgregar(false);
+  }
+  
   return (
     <div className='iteamDetail__contenedor'>
         <img className='itemDetail__imagen' src={imagen} alt="imagen del producto" />
-        <div className='.itemDetail__detalles'>
+        <div className='itemDetail__detalles'>
         <h2 className='itemDetail__titulo'>{nombre}</h2>
         <p className='itemDetail__textos'>{descripcion}<br></br>Stock disponible: {stock}<br></br>Precio ${precio}</p>
-        <ItemCount stock={stock} initial={1} />   
-        </div>          
+        {
+          agregar ? <ItemCount stock={stock} initial={1} onAdd={agregarAlCarrito}/> : 
+          <Link to='/carrito'>
+          <button className='botonCarrito '> Finalizar compra</button>
+          </Link>
+          
+        }                 
+        </div> 
         
     </div>
   )

@@ -5,7 +5,7 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-    const [waffles, setWaffles] = useState([]);
+    const [waffles, setWaffles] = useState({});
     const [cargando, setCargando] = useState(true);
     const { id } = useParams();
 

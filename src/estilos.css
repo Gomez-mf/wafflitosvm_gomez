@@ -49,6 +49,12 @@
         font-size: 18px;
     }
     
+    header nav .navbar__menu .navbar__links a:hover {
+        border-bottom: red 3px solid;
+        color: red;
+        background-color: #f3eadb;
+    }
+    
     .itemList__contenedor {
         display: flex;
         flex-flow: row wrap;
@@ -132,7 +138,7 @@
     .iteamDetail__contenedor .itemDetail__detalles {
         position: relative;
         min-width: 300px;
-        text-align: left;
+        text-align: center;
         font-weight: bold;
         display: flex;
         flex-direction: column;
@@ -176,6 +182,12 @@
         margin-top: 10px;
         margin-bottom: 10px;
         cursor: pointer;
+    }
+    
+    .botonCarrito:hover {
+        background-color: white;
+        color: #b1575a;
+        border: #b1575a 1px solid;
     }
     
     p {
