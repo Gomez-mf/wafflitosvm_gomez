@@ -106,7 +106,7 @@
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
         color: white;
         font-size: 14px;
-        padding: 10px 25px;
+        padding: 12px 20px;
         margin-top: 10px;
         margin-bottom: 10px;
         cursor: pointer;
@@ -158,6 +158,7 @@
     .itemDetail__textos {
         font-weight: bold;
         margin-bottom: 10px;
+        color: #b1575a;
     }
     
     .botonCantidad {
@@ -178,20 +179,10 @@
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
         color: white;
         font-size: 14px;
-        padding: 10px 25px;
+        padding: 12px 20px;
         margin-top: 10px;
         margin-bottom: 10px;
         cursor: pointer;
-    }
-    
-    .botonCarrito:hover {
-        background-color: white;
-        color: #b1575a;
-        border: #b1575a 1px solid;
-    }
-    
-    p {
-        color: #b1575a;
     }
     
     .footer {

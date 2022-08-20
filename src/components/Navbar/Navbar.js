@@ -17,7 +17,7 @@ const Navbar = () => {
                             <Link to='/'>Todos</Link>
                             <Link to='categoria/dulces'>Waffles dulces</Link>
                             <Link to='categoria/salado'>Waffles salados</Link>
-                            <Link to='carrito'>Carrito <span>0</span><CartWidget /></Link>
+                            <Link to='carrito'>Carrito<CartWidget /></Link>
                         </div>
                     </div>
                 </nav>

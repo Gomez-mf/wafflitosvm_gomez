@@ -2,28 +2,28 @@
 import { useState } from 'react';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-    const [numero, setNumero] = useState(initial);
+    const [cantidad, setCantidad] = useState(initial);
 
     const agregarAlCarrito = () => {
-        onAdd(numero)
+        onAdd(cantidad)
     }
     const aumentar = () => {
-        if (numero < stock) {
-            setNumero(numero + 1)
+        if (cantidad < stock) {
+            setCantidad(cantidad + 1)
         }
     }
 
     const disminuir = () => {
-        if (numero > 0) {
-            setNumero(numero - 1)
+        if (cantidad > 0) {
+            setCantidad(cantidad - 1)
         }
 
     }
 
     return (
         <div>
-            <button disabled={numero === 0} className="botonCantidad" onClick={disminuir}>  -  </button><span>{numero}</span><button disabled={numero === stock} className="botonCantidad" onClick={aumentar} >  +  </button><br></br>
-            <button disabled={numero === 0} className="botonCarrito" onClick={agregarAlCarrito} >Agregar al carrito</button>
+            <button disabled={cantidad === 0} className="botonCantidad" onClick={disminuir}>  -  </button><span>{cantidad}</span><button disabled={cantidad === stock} className="botonCantidad" onClick={aumentar} >  +  </button><br></br>
+            <button disabled={cantidad === 0} className="botonCarrito" onClick={agregarAlCarrito} >Agregar al carrito</button>
         </div>
     )
 }
