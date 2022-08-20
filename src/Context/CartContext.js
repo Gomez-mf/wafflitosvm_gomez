@@ -1,6 +1,10 @@
-import { createContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 export const CartContext = createContext();
+
+export const useCartContext = () =>{
+  return useContext(CartContext)
+}
 
 const CartContextProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([])
@@ -10,6 +14,10 @@ const CartContextProvider = ({ children }) => {
   }
 
   const addItem = (producto, cantidad) => {
+
+    const nuevoProducto = { 
+      ...producto, 
+      cantidad}
 
     if (isInCart(producto.id)) {
       const nuevoCarrito = carrito.map(item => {
@@ -22,7 +30,6 @@ const CartContextProvider = ({ children }) => {
       })
       setCarrito(nuevoCarrito)
     } else {
-      const nuevoProducto = { ...producto, cantidad: cantidad }
       setCarrito([...carrito, nuevoProducto])
     }
   }
@@ -48,6 +55,7 @@ const CartContextProvider = ({ children }) => {
 
 
   return (<CartContext.Provider value={{
+    carrito,
     isInCart,
     addItem,
     removeItem,
