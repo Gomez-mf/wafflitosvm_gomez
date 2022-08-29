@@ -1,12 +1,17 @@
 import { useCartContext } from "../../Context/CartContext";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import EmptyCart from "./EmptyCart";
 
 
 const Cart = () => {
-  const { carrito, removeItem, emplyCart, getItemPrice } = useCartContext()
+  const { carrito, removeItem, emplyCart, getItemPrice } = useCartContext();
+  
+  const navigate = useNavigate()
+  const handleVolver = () => {
+      navigate(-1)
+  }
 
   return (
     <section className="cart__contenedor">
@@ -35,12 +40,10 @@ const Cart = () => {
           ))}
         </table>
         <p className="cart__total">Total: ${getItemPrice()}</p>
+        <button className="botonCarrito">Finalizar compra</button>    
       <div className="cart__footer">
-        <button className="botonCarrito">Finalizar compra</button>
         <button className="botonCarrito" onClick={emplyCart}>Vaciar Carrito</button>
-        <Link to="/">
-        <button className="botonCarrito">Volver atrás</button>
-        </Link>     
+        <button onClick={handleVolver} className="botonCarrito">Volver atrás</button>
       </div>
       </div>
       </>}
