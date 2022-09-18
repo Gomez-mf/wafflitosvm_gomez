@@ -5,7 +5,7 @@ En el proyecto, se intenta recrear una aplicación ecommers utilizando React JS,
 
 ## Instalación del proyecto
 - Descargar proyecto a través de la opción "Code".
-- Abrir consola de preferencia e introducir "npm install".
+- Abrir consola de preferencia, ubicarse en la capera del proyecto descargado,  e introducir "npm install".
 - Una vez finalizada la instación del proyecto introducir "npm start" para poder visualizar la aplicación de manera local en http://localhost:3000.
 
 ## Tecnologías utilizadas
