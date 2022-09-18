@@ -1,5 +1,3 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faCreditCard, faUniversity } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { db } from "../../firebase/firebase";
 import { addDoc, collection, serverTimestamp} from "firebase/firestore";
@@ -8,42 +6,44 @@ import { Order } from '../Order/Order';
 
 const Checkout = () => {
 
-    const {carrito, getItemPrice, emplyCart} = useCartContext()
-    const [ordenId, setOrdenId] = useState(null);
-    const [order, setOrder] = useState([])
-    const [enviar, setEnviar] = useState(false)
+    const {cart, getItemPrice, emplyCart} = useCartContext()
+    const [orderId, setOrderId] = useState(null);
+    const [order, setOrder] = useState()
+    const [submit, setSubmit] = useState(false)
 
-    const [datos, setDatos ] = useState({
+    const [dataForm, setDataForm ] = useState({
         nombre: "",
         apellido: "",
         email: "",
         telefono: ""
     
     })
-    const obtenerDatos = (e) => {
+    const handleChange = (e) => {
         e.preventDefault()
-        setDatos({
-            ...datos,
+        setDataForm({
+            ...dataForm,
             [e.target.name]: e.target.value
         })
     
     }
-    const enviarFormulario = (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
         const orden = {
-            item: carrito.map(({id, cantidad, nombre, precio}) => ({id, cantidad, nombre, precio})),
+            item: cart.map(({id, cantidad, nombre, precio}) => ({id, cantidad, nombre, precio})),
             total: getItemPrice(),
-            buyer: datos,
+            buyer: dataForm,
             date: serverTimestamp()
         }
-        const ordenesColeccion = collection(db, "ordenes")
-        const consultaOrden = addDoc(ordenesColeccion, orden)
+        setOrder(orden)
+        const orderColection = collection(db, "ordenes")
+        const orderDoc = addDoc(orderColection, orden)
         
-        setEnviar(true)
-        consultaOrden
+        
+        setSubmit(true)
+        orderDoc
         .then((res)=>{
-            setOrdenId(res.id)
-            setOrder(orden)
+            setOrderId(res.id)
+            emplyCart()
         })
         .catch((error)=>{
             console.log('ERROR', error)
@@ -55,33 +55,49 @@ const Checkout = () => {
         } 
     
   return (
-    enviar ? <Order order={order} id={ordenId} /> :
+    submit ? <Order order={order} id={orderId} /> :
     <div className='formulario__contenedor'>
         <h3 className='formulario__titulos'>Ingrese sus datos</h3>
-        <form onSubmit={(e) => enviarFormulario(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
             <p className='formulario__campos'>
                 <label >Nombre</label>
-                <input type="text" placeholder="Ingrese su nombre" name='nombre' value={datos.nombre} required onChange={obtenerDatos} />
+                <input type="text" 
+                placeholder="Ingrese su nombre" 
+                name='nombre' 
+                value={dataForm.nombre} 
+                onChange={handleChange}
+                required                
+                />
             </p>
             <p className='formulario__campos'>
             <label>Apellido</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" value={datos.apellido} onChange={obtenerDatos} required></input>
+            <input type="text" 
+            name="apellido"
+             placeholder="Ingrese su apellido" 
+             value={dataForm.apellido} 
+             onChange={handleChange} 
+             required
+             />
             </p>
             <p className='formulario__campos'>
             <label>Email</label>
-            <input type="text" name="email" id="email" placeholder="wafflitos@gmail.com"  value={datos.email} onChange={obtenerDatos} required></input>
+            <input type="text" 
+            name="email"
+            placeholder="wafflitos@gmail.com"
+            value={dataForm.email}
+            onChange={handleChange}
+            required
+            />
             </p>
             <p className='formulario__campos'>
             <label>Telefono</label>
-            <input type="tel" name="telefono" id="telefono" placeholder="15-xxxxxxxx" maxLength="10" value={datos.telefono} onChange={obtenerDatos} required></input>
-            </p>
-            <p className='formulario__campos'>
-            <input type="radio" name="metodo" required></input>
-            <label>Tarjeta de crédito/débito <FontAwesomeIcon icon={faCreditCard}/></label>
-            </p>
-            <p className='formulario__campos'>
-            <input type="radio" required ></input>
-            <label>Transferencia bancaria <FontAwesomeIcon icon={faUniversity} /></label>
+            <input type="tel" 
+            name="telefono"
+            placeholder="15-xxxxxxxx" maxLength="10" 
+            value={dataForm.telefono} 
+            onChange={handleChange} 
+            required
+            />
             </p>
             <button type="submit" className='botonCarrito'>Finalizar compra</button>
         </form>

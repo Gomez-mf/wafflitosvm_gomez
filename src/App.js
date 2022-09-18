@@ -7,6 +7,8 @@ import Cart from './components/Cart/Cart';
 import CartContextProvider from './Context/CartContext';
 import Checkout from './components/Checkout/Checkout';
 import { Order } from './components/Order/Order';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -15,13 +17,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<ItemListContainer greeting={'Nuestros productos'} />} />
-        <Route path="/categoria/:categoria" element={<ItemListContainer />} />
-        <Route path ='/producto/:id' element={<ItemDetailContainer />} />
-        <Route path ='/carrito' element={<Cart />} /> 
+        <Route path="/category/:category" element={<ItemListContainer />} />
+        <Route path ='/products/:id' element={<ItemDetailContainer />} />
+        <Route path ='/cart' element={<Cart />} /> 
         <Route path ='/checkout' element={<Checkout />} />  
-        <Route path ='/orden' element={<Order />} />
+        <Route path ='/order' element={<Order />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </CartContextProvider>
     </BrowserRouter>
   )

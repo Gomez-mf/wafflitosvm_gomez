@@ -6,7 +6,7 @@ import EmptyCart from "./EmptyCart";
 
 
 const Cart = () => {
-  const { carrito, removeItem, emplyCart, getItemPrice } = useCartContext();
+  const { cart, removeItem, emplyCart, getItemPrice } = useCartContext();
   
   const navigate = useNavigate()
   const handleVolver = () => {
@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <section className="cart__contenedor">
       <h3 className="cart__titulos">Resúmen del carrito</h3>
-      {carrito.length === 0 ? <EmptyCart />
+      {cart.length === 0 ? <EmptyCart />
 
       : <>
       <div className='cart__contenedorProductos'>
@@ -28,7 +28,7 @@ const Cart = () => {
               <th>Precio</th>
             </tr>
           </thead>
-          {carrito.map(item => (
+          {cart.map(item => (
             <tbody key={item.id}>
               <tr>
                 <td>{item.nombre}</td>

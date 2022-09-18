@@ -8,15 +8,15 @@ import ItemList from "../ItemList/ItemList ";
 const ItemListContainer = ({ greeting }) => {
 
   const [waffles, setWaffles] = useState([]);
-  const [cargando, setCargando] = useState(true);
-  const {categoria} = useParams();
+  const [loading, setLoading] = useState(true);
+  const {category} = useParams();
 
   useEffect(() => {
-    setCargando(true)
+    setLoading(true)
 
-    const productos = collection(db, "productos");
-    const filtro = categoria ? query(productos, where('categoria', '==', categoria)) : productos;
-    const mostrarProductos = getDocs(filtro)
+    const products = collection(db, "productos");
+    const filter = category ? query(products, where('categoria', '==', category)) : products;
+    const mostrarProductos = getDocs(filter)
     
     mostrarProductos
       .then(res=>{
@@ -32,9 +32,9 @@ const ItemListContainer = ({ greeting }) => {
         console.log('ERROR', error);
       })
       .finally(()=>{
-        setCargando(false)
+        setLoading(false)
       }) 
-  }, [categoria])
+  }, [category])
 
   return (
     <>
@@ -42,7 +42,7 @@ const ItemListContainer = ({ greeting }) => {
        <h2 className="itemList__titulo">{greeting}</h2>
         <div className="itemList__contenedor">
           {
-           cargando ? <Spinner /> : <ItemList waffles={waffles} />
+           loading ? <Spinner /> : <ItemList waffles={waffles} />
           }
         </div>
       </section>

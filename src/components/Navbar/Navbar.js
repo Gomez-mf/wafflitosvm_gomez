@@ -15,8 +15,8 @@ const Navbar = () => {
                     <div className='navbar__menu'>
                         <div className='navbar__links'>
                             <Link to='/'>Todos</Link>
-                            <Link to="categoria/dulces">Waffles dulces</Link>
-                            <Link to="categoria/salado">Waffles salados</Link>
+                            <Link to="category/dulces">Waffles dulces</Link>
+                            <Link to="category/salado">Waffles salados</Link>
                             <CartWidget />
                         </div>
                     </div>

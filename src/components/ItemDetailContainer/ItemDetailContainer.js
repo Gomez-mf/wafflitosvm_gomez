@@ -7,12 +7,12 @@ import { collection, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [waffles, setWaffles] = useState({});
-    const [cargando, setCargando] = useState(true);
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
-        const productos = collection(db, "productos");
-        const docRef = doc(productos, id)
+        const products = collection(db, "productos");
+        const docRef = doc(products, id)
 
         getDoc(docRef)
             .then((doc)=>{
@@ -22,12 +22,12 @@ const ItemDetailContainer = () => {
                 })
             })
             .catch(error => console.log(error))
-            .finally(() => setCargando(false))
+            .finally(() => setLoading(false))
     }, [id])
     return (
         <>
             <div className="itemList__contenedor"> {
-                cargando ? < Spinner /> : < ItemDetail waffles={waffles} />}
+                loading ? < Spinner /> : < ItemDetail waffles={waffles} />}
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import { useState } from 'react';
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [cantidad, setCantidad] = useState(initial);
 
-    const agregarAlCarrito = () => {
+    const addToCart = () => {
         onAdd(cantidad)
     }
     const aumentar = () => {
@@ -23,7 +23,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div>
             <button disabled={cantidad === 0} className="botonCantidad" onClick={disminuir}>  -  </button><span>{cantidad}</span><button disabled={cantidad === stock} className="botonCantidad" onClick={aumentar} >  +  </button><br></br>
-            <button disabled={cantidad === 0} className="botonCarrito" onClick={agregarAlCarrito} >Agregar al carrito</button>
+            <button disabled={cantidad === 0} className="botonCarrito" onClick={addToCart} >Agregar al carrito</button>
         </div>
     )
 }

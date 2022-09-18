@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react'
+import { toast } from 'react-toastify';
 
 export const CartContext = createContext();
 
@@ -7,55 +8,73 @@ export const useCartContext = () =>{
 }
 
 const CartContextProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState([])
+  const [cart, setCart] = useState([])
 
   const isInCart = (id) => {
-    carrito.some((producto) => producto.id === id)
+    cart.some((producto) => producto.id === id)
   }
 
   const addItem = (producto, cantidad) => {
+    toast('Producto agregado con éxito 😀 ', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
 
-    const nuevoProducto = { 
+    const newProduct = { 
       ...producto, 
       cantidad}
 
     if (isInCart(producto.id)) {
-      const nuevoCarrito = carrito.map(item => {
+      const newCart = cart.map(item => {
         if (item.id === producto.id) {
-          const nuevaCantidad = producto.cantidad + cantidad
-          return { ...item, cantidad: nuevaCantidad }
+          const newQuality = producto.cantidad + cantidad
+          return { ...item, cantidad: newQuality}
         } else {
           return item
         }
       })
-      setCarrito(nuevoCarrito)
+      setCart(newCart)
     } else {
-      setCarrito([...carrito, nuevoProducto])
+      setCart([...cart, newProduct])
     }
   }
 
 
   const removeItem = (id) => {
-    return setCarrito(carrito.filter(producto => producto.id !== id))
+    toast('Producto eliminado ❌ ', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+    return setCart(cart.filter(producto => producto.id !== id))
 
   }
 
   const emplyCart = () => {
-    return setCarrito([])
+    return setCart([])
   }
 
   const getItemQuantity = () => {
-    return carrito.reduce((acc, prod) => acc += prod.cantidad, 0)
+    return cart.reduce((acc, prod) => acc += prod.cantidad, 0)
 
   }
 
   const getItemPrice = () => {
-    return carrito.reduce((acc, prod) => acc += prod.cantidad * prod.precio, 0)
+    return cart.reduce((acc, prod) => acc += prod.cantidad * prod.precio, 0)
   }
 
 
   return (<CartContext.Provider value={{
-    carrito,
+    cart,
     isInCart,
     addItem,
     removeItem,
