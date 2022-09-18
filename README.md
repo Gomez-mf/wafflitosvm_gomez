@@ -19,5 +19,6 @@ En el proyecto, se intenta recrear una aplicación ecommers utilizando React JS,
 
 ## GIF
 
+![wafflitosvm](https://user-images.githubusercontent.com/93606240/190921045-e510be63-b0fb-4083-9a42-7de4357d3dcd.gif)
 
 
